@@ -37,9 +37,7 @@ public class MyXMLQuery {
     public List<Node> queryAll(String path) {
         List<Node> nodes = document.selectNodes(path);
         File newXmlFile = getNewXmlFile();
-        MyFileWriter.wirteHead(newXmlFile);
         MyFileWriter.writeNode(nodes, newXmlFile);
-        MyFileWriter.wirteTear(newXmlFile);
         return nodes;
     }
 
@@ -53,7 +51,6 @@ public class MyXMLQuery {
         List<Node> nodes = document.selectNodes(path);
         List<Node> res = new ArrayList<>();
         File newXmlFile = getNewXmlFile();
-        MyFileWriter.wirteHead(newXmlFile);
         for(Node node : nodes) {
             String text = node.valueOf("@name");
             if(name.equals(text)) {
@@ -61,7 +58,6 @@ public class MyXMLQuery {
             }
         }
         MyFileWriter.writeNode(res, newXmlFile);
-        MyFileWriter.wirteTear(newXmlFile);
         return res;
     }
 
@@ -75,7 +71,6 @@ public class MyXMLQuery {
         List<Node> nodes = document.selectNodes(path);
         List<Node> res = new ArrayList<>();
         File newXmlFile = getNewXmlFile();
-        MyFileWriter.wirteHead(newXmlFile);
         for(Node node : nodes) {
             String text = node.selectSingleNode("teacher").getText();
             if(teacher.equals(text)) {
@@ -83,7 +78,6 @@ public class MyXMLQuery {
             }
         }
         MyFileWriter.writeNode(res, newXmlFile);
-        MyFileWriter.wirteTear(newXmlFile);
         return res;
     }
 
@@ -97,7 +91,6 @@ public class MyXMLQuery {
         List<Node> nodes = document.selectNodes(path);
         List<Node> res = new ArrayList<>();
         File newXmlFile = getNewXmlFile();
-        MyFileWriter.wirteHead(newXmlFile);
         for(Node node : nodes) {
             String text = node.selectSingleNode("room").getText();
             if(room.equals(text)) {
@@ -105,7 +98,6 @@ public class MyXMLQuery {
             }
         }
         MyFileWriter.writeNode(res, newXmlFile);
-        MyFileWriter.wirteTear(newXmlFile);
         return res;
     }
 
@@ -119,7 +111,6 @@ public class MyXMLQuery {
         List<Node> nodes = document.selectNodes(path);
         List<Node> res = new ArrayList<>();
         File newXmlFile = getNewXmlFile();
-        MyFileWriter.wirteHead(newXmlFile);
         for(Node node : nodes) {
             if(node.selectSingleNode("publication") == null)
                 continue;
@@ -129,7 +120,6 @@ public class MyXMLQuery {
             }
         }
         MyFileWriter.writeNode(res, newXmlFile);
-        MyFileWriter.wirteTear(newXmlFile);
         return res;
     }
 
